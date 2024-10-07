@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .right-align {
+            float: right;
+            padding: 5px;
+            margin-bottom: 5px;
+            gap: 1px;
+            justify-content: space-between;
+        }
+        .back-nutton{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Student List</h2>
+    </center>
+    <button class="right-align">New Student</button>&nbsp;&nbsp;
+    <button class="right-align back-nutton">Back</button>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Student Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        const students = [{
+                name: 'Tapas',
+                age: 28,
+                grade: 'A'
+            },
+            {
+                name: 'Sourav',
+                age: 25,
+                grade: 'B'
+            },
+            {
+                name: 'Daya',
+                age: 28,
+                grade: 'D'
+            },
+            {
+                name: 'Sahail',
+                age: 30,
+                grade: 'C'
+            },
+            {
+                name: 'Sathi',
+                age: 28,
+                grade: 'A'
+            }
+        ];
+
+        function displayTableData() {
+            const tableBody = document.querySelector("#dataTable tbody");
+
+            students.forEach((student, index) => {
+
+                const row = document.createElement('tr');
+
+                const serialCell = document.createElement('td');
+                serialCell.textContent = ++index;
+                row.appendChild(serialCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = student.name;
+                row.appendChild(nameCell);
+
+                const ageCell = document.createElement('td');
+                ageCell.textContent = student.age;
+                row.appendChild(ageCell);
+
+                const gradeCell = document.createElement('td');
+                gradeCell.textContent = student.grade;
+                row.appendChild(gradeCell);
+
+                tableBody.appendChild(row);
+
+            });
+        }
+        displayTableData();
+    </script>
+</body>
+
+</html>
+
+
+<!-- <tr>
+    <td>1</td>
+    <td>AAAA</td>
+    <td>24</td>
+    <td>A</td>
+</tr> -->
